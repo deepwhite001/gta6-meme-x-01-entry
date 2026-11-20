@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>GTA VI loading — 13 years and counting</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1024px; height: 1024px; overflow: hidden; }
+  body { font-family: 'Arial Black', 'DejaVu Sans', sans-serif; background: #1a0b2e; }
+  .scene { position: relative; width: 1024px; height: 1024px; overflow: hidden; }
+
+  /* sky */
+  .sky { position: absolute; inset: 0 0 324px 0;
+    background: linear-gradient(180deg, #160a2e 0%, #4a1160 30%, #c22a72 55%, #ff5e3a 78%, #ffb347 100%); }
+  .sun { position: absolute; left: 50%; top: 470px; width: 230px; height: 230px;
+    margin-left: -115px; border-radius: 50%;
+    background: radial-gradient(circle, #fff3c4 0%, #ffe27a 55%, #ffb347 100%);
+    box-shadow: 0 0 90px 40px rgba(255, 190, 90, .55); }
+
+  /* skyline */
+  .skyline { position: absolute; left: 0; right: 0; bottom: 324px; height: 260px; }
+  .skyline svg { display: block; width: 1024px; height: 260px; }
+  .neon { position: absolute; left: 192px; top: 505px; transform: rotate(-2deg);
+    padding: 8px 16px; border-radius: 10px; background: rgba(10, 5, 20, .62);
+    border: 2px solid rgba(255, 92, 225, .55);
+    color: #ff5ce1; font-size: 44px; font-weight: 900; letter-spacing: 2px;
+    text-shadow: 0 0 6px #ff5ce1, 0 0 18px #ff5ce1, 0 0 34px #e600c8, 0 0 60px #e600c8; }
+
+  /* sea */
+  .sea { position: absolute; left: 0; right: 0; bottom: 0; height: 324px;
+    background: linear-gradient(180deg, #0d4a5c 0%, #083344 45%, #041e2b 100%); }
+  .sea .streak { position: absolute; left: 50%; top: 0; width: 150px; height: 324px;
+    margin-left: -75px;
+    background: linear-gradient(180deg, rgba(255, 210, 110, .45), rgba(255, 210, 110, 0)); }
+  .sea .line { position: absolute; left: 90px; right: 90px; height: 3px; background: rgba(255,255,255,.18); border-radius: 2px; }
+
+  /* title */
+  .title { position: absolute; left: 0; right: 0; top: 44px; text-align: center; }
+  .title .over { font-size: 34px; font-weight: 900; letter-spacing: 14px; color: #fff;
+    -webkit-text-stroke: 2px #111; text-shadow: 0 4px 0 rgba(0,0,0,.45); }
+  .title .big { font-size: 168px; line-height: .95; font-weight: 900; letter-spacing: 10px; color: #fff;
+    -webkit-text-stroke: 4px #111; text-shadow: 0 8px 0 rgba(0,0,0,.45); }
+  .title .under { margin-top: 6px; font-size: 26px; font-weight: 900; letter-spacing: 12px; color: #ffd166;
+    -webkit-text-stroke: 1.5px #111; text-shadow: 0 3px 0 rgba(0,0,0,.45); }
+
+  /* loading bar */
+  .bar-wrap { position: absolute; left: 132px; right: 132px; top: 700px; }
+  .bar { position: relative; height: 46px; border-radius: 23px; background: #160a2e;
+    border: 4px solid #111; overflow: hidden; }
+  .bar .fill { position: absolute; left: 0; top: 0; bottom: 0; width: 99%;
+    background: linear-gradient(90deg, #ff2e88, #ff5e3a, #ffb347); }
+  .bar .pct { position: absolute; right: 18px; top: 50%; transform: translateY(-50%);
+    font-size: 26px; font-weight: 900; color: #fff; -webkit-text-stroke: 1px #111; }
+  .bar-label { margin-top: 12px; text-align: center; font-size: 30px; font-weight: 900;
+    letter-spacing: 8px; color: #fff; -webkit-text-stroke: 1.5px #111; }
+
+  /* ghost sitting on the bar */
+  .ghost { position: absolute; left: 668px; top: 500px; width: 200px; height: 220px; }
+
+  /* caption */
+  .caption { position: absolute; left: 0; right: 0; top: 830px; text-align: center; }
+  .caption .main { font-size: 56px; font-weight: 900; letter-spacing: 4px; color: #fff;
+    -webkit-text-stroke: 2.5px #111; text-shadow: 0 5px 0 rgba(0,0,0,.5); }
+  .caption .sub { margin-top: 14px; font-size: 29px; font-weight: 900; letter-spacing: 3px; color: #ffd166;
+    -webkit-text-stroke: 1px #111; text-shadow: 0 3px 0 rgba(0,0,0,.45); }
+
+  /* palms */
+  .palm { position: absolute; bottom: 324px; }
+  .palm.left { left: 18px; }
+  .palm.right { right: 18px; transform: scaleX(-1); }
+</style>
+</head>
+<body>
+<div class="scene">
+  <div class="sky"></div>
+  <div class="sun"></div>
+
+  <div class="skyline">
+    <svg viewBox="0 0 1024 260" preserveAspectRatio="none">
+      <g fill="#140821">
+        <rect x="0" y="120" width="90" height="140"/>
+        <rect x="90" y="80" width="70" height="180"/>
+        <rect x="160" y="140" width="110" height="120"/>
+        <rect x="270" y="60" width="80" height="200"/>
+        <rect x="350" y="110" width="100" height="150"/>
+        <rect x="450" y="40" width="90" height="220"/>
+        <rect x="540" y="100" width="80" height="160"/>
+        <rect x="620" y="70" width="110" height="190"/>
+        <rect x="730" y="120" width="90" height="140"/>
+        <rect x="820" y="55" width="80" height="205"/>
+        <rect x="900" y="110" width="124" height="150"/>
+      </g>
+      <g fill="#ffd166" opacity="0.85">
+        <rect x="20" y="140" width="10" height="12"/><rect x="45" y="165" width="10" height="12"/>
+        <rect x="105" y="100" width="10" height="12"/><rect x="130" y="140" width="10" height="12"/>
+        <rect x="185" y="165" width="10" height="12"/><rect x="230" y="185" width="10" height="12"/>
+        <rect x="290" y="85" width="10" height="12"/><rect x="315" y="130" width="10" height="12"/>
+        <rect x="370" y="135" width="10" height="12"/><rect x="410" y="160" width="10" height="12"/>
+        <rect x="470" y="65" width="10" height="12"/><rect x="500" y="110" width="10" height="12"/>
+        <rect x="560" y="125" width="10" height="12"/><rect x="640" y="95" width="10" height="12"/>
+        <rect x="680" y="140" width="10" height="12"/><rect x="750" y="145" width="10" height="12"/>
+        <rect x="840" y="80" width="10" height="12"/><rect x="865" y="130" width="10" height="12"/>
+        <rect x="920" y="135" width="10" height="12"/><rect x="965" y="160" width="10" height="12"/>
+      </g>
+    </svg>
+  </div>
+  <div class="neon">make.fun</div>
+
+  <div class="palm left">
+    <svg width="150" height="240" viewBox="0 0 150 240">
+      <g fill="none" stroke="#0d0618" stroke-width="11" stroke-linecap="round">
+        <path d="M70 240 Q 66 150 78 78"/>
+        <path d="M78 78 Q 30 40 6 62"/>
+        <path d="M78 78 Q 48 22 18 30"/>
+        <path d="M78 78 Q 78 18 52 4"/>
+        <path d="M78 78 Q 96 14 128 12"/>
+        <path d="M78 78 Q 118 34 146 58"/>
+        <path d="M78 78 Q 128 66 142 96"/>
+      </g>
+    </svg>
+  </div>
+  <div class="palm right">
+    <svg width="150" height="240" viewBox="0 0 150 240">
+      <g fill="none" stroke="#0d0618" stroke-width="11" stroke-linecap="round">
+        <path d="M70 240 Q 66 150 78 78"/>
+        <path d="M78 78 Q 30 40 6 62"/>
+        <path d="M78 78 Q 48 22 18 30"/>
+        <path d="M78 78 Q 78 18 52 4"/>
+        <path d="M78 78 Q 96 14 128 12"/>
+        <path d="M78 78 Q 118 34 146 58"/>
+        <path d="M78 78 Q 128 66 142 96"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="sea">
+    <div class="streak"></div>
+    <div class="line" style="top: 90px"></div>
+    <div class="line" style="top: 170px; left: 170px; right: 170px"></div>
+    <div class="line" style="top: 250px; left: 260px; right: 260px"></div>
+  </div>
+
+  <div class="title">
+    <div class="over">GRAND THEFT AUTO</div>
+    <div class="big">VI</div>
+    <div class="under">VICE CITY &middot; LEONIDA</div>
+  </div>
+
+  <div class="ghost">
+    <svg width="200" height="220" viewBox="0 0 200 220">
+      <!-- ghost body: white, thick black outline, wavy hem -->
+      <path d="M100 12 C 52 12 26 52 26 104 L 26 178 Q 38 164 50 178 Q 62 192 75 178 Q 88 164 100 178 Q 112 164 125 178 Q 138 192 150 178 Q 162 164 174 178 L 174 104 C 174 52 148 12 100 12 Z"
+        fill="#ffffff" stroke="#111111" stroke-width="7" stroke-linejoin="round"/>
+      <!-- sparkle eyes -->
+      <path d="M72 96 L 77 110 L 91 115 L 77 120 L 72 134 L 67 120 L 53 115 L 67 110 Z" fill="#111111"/>
+      <path d="M128 96 L 133 110 L 147 115 L 133 120 L 128 134 L 123 120 L 109 115 L 123 110 Z" fill="#111111"/>
+      <!-- little round hand holding the coin up -->
+      <circle cx="36" cy="76" r="13" fill="#ffffff" stroke="#111111" stroke-width="5"/>
+      <!-- magenta coin with white star -->
+      <circle cx="30" cy="40" r="26" fill="#e600c8" stroke="#111111" stroke-width="5"/>
+      <path d="M30 22 L 34 33 L 46 33 L 36 40 L 40 52 L 30 45 L 20 52 L 24 40 L 14 33 L 26 33 Z" fill="#ffffff"/>
+    </svg>
+  </div>
+
+  <div class="bar-wrap">
+    <div class="bar">
+      <div class="fill"></div>
+      <div class="pct">99%</div>
+    </div>
+    <div class="bar-label">LOADING&hellip;</div>
+  </div>
+
+  <div class="caption">
+    <div class="main">13 YEARS AND COUNTING</div>
+    <div class="sub">THE GHOST WAITED TOO &mdash; AND GOT PAID FOR IT</div>
+  </div>
+</div>
+</body>
+</html>
